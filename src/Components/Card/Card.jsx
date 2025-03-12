@@ -5,7 +5,7 @@ export default function Card(props) {
   return (
     <>  
     <div className='w-1/4 p-4'>
-      <div className='p-6 shadow-xl rounded-xl bg-gray-200 text-start'>
+      <div className='p-6 shadow-xl rounded-xl bg-white text-start'>
         <div className='w-1/2'>
             <span>Total users :</span>
             <h1 className='text-3xl'>{TotalUsers}</h1>
