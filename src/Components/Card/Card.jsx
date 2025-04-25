@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 export default function Card(props) {
   let { TotalUsers, ratio } = props.cardDetails
   const [data, setData] = useState(null);
-
+  
   useEffect(() => {
     fetch('/api/data')
       .then((res) => res.json())
