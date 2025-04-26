@@ -1,20 +1,8 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import Dashboard from './Components/Dashboard/Dashboard';
-
+import Dashboard from "./Containers/Dashboard";
+import "./App.css";
 
 function App() {
-  
-
-  return (
-    <>
-      <Dashboard/>
-      
-    
-    </>
-  )
+  return <Dashboard />;
 }
 
-export default App
+export default App;
