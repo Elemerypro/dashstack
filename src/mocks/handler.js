@@ -1,9 +1,12 @@
 import {http,HttpResponse} from 'msw';
+import carddata from "./card-data.json"
+import chartdata from "./chart-data.json"
 
 const handlers=[
     http.get('/api/data' , ()=>{
         return HttpResponse.json({
-            data:['Item1','Item2','Item3']
+            data:carddata ,
+            chartdata:chartdata,
         });
     }),
 ];
