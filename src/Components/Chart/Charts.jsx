@@ -1,6 +1,7 @@
 import React from 'react'
 import {Line} from 'react-chartjs-2'
 import Chart from 'chart.js/auto';
+import '../../Spinner.css'
 
 
 import {
@@ -15,10 +16,18 @@ import {
 ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement, Tooltip);
 
 const Charts = ({ chartDetails }) => {
-  if (!chartDetails || !chartDetails.data || !chartDetails.options) {
-    return <p>Loading chart...</p>;
-  }
   const { data, options } = chartDetails
+
+  if ( !chartDetails.data || !chartDetails.options) {
+    return <div class="sk-chase">
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+    </div>;
+  }
   
 
   return (

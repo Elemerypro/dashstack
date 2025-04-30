@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Card from '../../Components/Card'
 import Charts from '../../Components/Chart';
-// import { ChartData } from '../Chartdata/Chartdata';
 
 
 
