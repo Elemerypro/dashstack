@@ -20,12 +20,12 @@ const Charts = ({ chartDetails }) => {
 
   if ( !chartDetails.data || !chartDetails.options) {
     return <div class="sk-chase">
-      <div class="sk-chase-dot"></div>
-      <div class="sk-chase-dot"></div>
-      <div class="sk-chase-dot"></div>
-      <div class="sk-chase-dot"></div>
-      <div class="sk-chase-dot"></div>
-      <div class="sk-chase-dot"></div>
+      <div className="sk-chase-dot"></div>
+      <div className="sk-chase-dot"></div>
+      <div className="sk-chase-dot"></div>
+      <div className="sk-chase-dot"></div>
+      <div className="sk-chase-dot"></div>
+      <div className="sk-chase-dot"></div>
     </div>;
   }
   
