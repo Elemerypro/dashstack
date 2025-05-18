@@ -10,3 +10,8 @@
 .row{
   @apply flex flex-wrap
 }
+
+.active{
+  background-color:#60a5ff ;
+  color: #fff;
+}
