@@ -9,14 +9,15 @@ import Notfound from './Container/Notfound';
 
 
 let x= createBrowserRouter([
-  {path : "",element : <Layout/> ,errorElement:<Notfound/> , children:[
-    { path: "dashboard", element:<Dashboard/> }
+  {path : "",element : <Layout/> , children:[
+    { index: true, element: <Dashboard /> },
+    { path:"#", element: <Notfound /> },
   ]}
 ])
 function App() {
   
 
-  return <RouterProvider router={x} >  </RouterProvider>
+  return <RouterProvider router={x}></RouterProvider>
 }
 
 export default App
