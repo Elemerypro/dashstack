@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Card =(props) =>{
   const { totalUsers, ratio } = props.cardDetails
