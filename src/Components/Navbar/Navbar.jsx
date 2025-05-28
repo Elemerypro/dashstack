@@ -1,34 +1,38 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom';
 
-function Navbar() {
-    return (
-        <nav className="bg-white border-gray-200 dark:bg-gray-900 ms-64 ">
-            <div className="max-w-screen-xl flex flex-wrap items-center justify-self-auto mx-auto p-2">
-                <div className='me-1'>
 
-                    <button id="dropdownMenuIconButton" data-dropdown-toggle="dropdownDots" className="inline-flex items-center p-2 text-sm font-medium text-center text-gray-900  rounded-lg hover:bg-white focus:ring-4 focus:outline-none dark:text-white focus:ring-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-600" type="button">
+function Navbar() {
+
+    const [isOpen, setIsOpen] = useState(true)
+    const[notiOpen,setNotiOpen] =useState(true)
+    const[userOpen,setUserOpen] =useState(true)
+
+    return (
+        <nav className="relative bg-white border-gray-200 dark:bg-gray-900 ms-64 ">
+            <div className="max-w-screen-xl flex flex-wrap items-center justify-self-auto mx-auto p-2">
+                <div className='me-1'  >
+
+                    <button onClick={() => setIsOpen(!isOpen)} id="dropdownMenuIconButton" data-dropdown-toggle="dropdownDots" className="inline-flex items-center p-2 text-sm font-medium text-center text-gray-900  rounded-lg hover:bg-white focus:ring-2 focus:ring-gray-50 " type="button">
                         <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 4 15">
                             <path d="M3.5 1.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 6.041a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 5.959a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" />
                         </svg>
                     </button>
 
 
-                    <div id="dropdownDots" className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700 dark:divide-gray-600">
-                        <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownMenuIconButton">
+                    <div id="dropdownDots" className={` ${isOpen ? ' hidden ' : ''}  `} >
+                        <ul className="py-2  text-sm text-gray-700 absolute dark:text-gray-200 bg-slate-50 divide-y divide-gray-100 rounded-lg shadow-lg w-44" aria-labelledby="dropdownMenuIconButton">
                             <li>
-                                <NavLink href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</NavLink>
+                                <NavLink to="#" className=" block px-4 py-2 hover:bg-gray-100 ">Dashboard</NavLink>
                             </li>
                             <li>
-                                <NavLink href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</NavLink>
+                                <NavLink to="#" className="block px-4 py-2 hover:bg-gray-100 ">Settings</NavLink>
                             </li>
                             <li>
-                                <NavLink href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</NavLink>
+                                <NavLink to="#" className="block px-4 py-2 hover:bg-gray-100 ">Earnings</NavLink>
                             </li>
                         </ul>
-                        <div className="py-2">
-                            <NavLink href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Separated link</NavLink>
-                        </div>
+                        
                     </div>
 
                 </div>
@@ -66,7 +70,7 @@ function Navbar() {
                 <div className="notification flex-1">
 
 
-                    <button id="dropdownNotificationButton" data-dropdown-toggle="dropdownNotification" className="relative inline-flex items-center text-sm font-medium text-center text-gray-500 hover:text-gray-900 focus:outline-none dark:hover:text-white dark:text-gray-400" type="button">
+                    <button onClick={() => setNotiOpen(!notiOpen)} id="dropdownNotificationButton" data-dropdown-toggle="dropdownNotification" className="relative inline-flex items-center text-sm font-medium text-center text-gray-500 hover:text-gray-900 focus:outline-none " type="button">
                         <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 14 20">
                             <path d="M12.133 10.632v-1.8A5.406 5.406 0 0 0 7.979 3.57.946.946 0 0 0 8 3.464V1.1a1 1 0 0 0-2 0v2.364a.946.946 0 0 0 .021.106 5.406 5.406 0 0 0-4.154 5.262v1.8C1.867 13.018 0 13.614 0 14.807 0 15.4 0 16 .538 16h12.924C14 16 14 15.4 14 14.807c0-1.193-1.867-1.789-1.867-4.175ZM3.823 17a3.453 3.453 0 0 0 6.354 0H3.823Z" />
                         </svg>
@@ -75,12 +79,12 @@ function Navbar() {
                     </button>
 
 
-                    <div id="dropdownNotification" className="z-20 hidden w-full max-w-sm bg-white divide-y divide-gray-100 rounded-lg shadow-sm dark:bg-gray-800 dark:divide-gray-700" aria-labelledby="dropdownNotificationButton">
-                        <div className="block px-4 py-2 font-medium text-center text-gray-700 rounded-t-lg bg-gray-50 dark:bg-gray-800 dark:text-white">
+                    <div id="dropdownNotification" className={` ${notiOpen ? ' hidden ' : ''}`} >
+                        {/* <div className="  z-20 hidden w-full max-w-sm divide-y bg-slate-400 divide-gray-100 rounded-lg shadow-sm  px-4 py-2 font-medium text-center text-gray-700 rounded-t-lg">
                             Notifications
-                        </div>
-                        <div className="divide-y divide-gray-100 dark:divide-gray-700">
-                            <NavLink href="#" className="flex px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700">
+                        </div> */}
+                        <ul className="absolute end-64 z-20 max-w-sm bg-slate-50 divide-y divide-gray-100 rounded-lg px-4 py-2 font-medium text-center text-gray-700 rounded-t-lg shadow-lg">
+                            <NavLink to="#" className="flex px-4 py-3 hover:bg-gray-100 ">
                                 <div className="shrink-0">
                                     <img className="rounded-full w-11 h-11" src="/docs/images/people/profile-picture-1.jpg" alt="Jese image" />
                                     <div className="absolute flex items-center justify-center w-5 h-5 ms-6 -mt-5 bg-blue-600 border border-white rounded-full dark:border-gray-800">
@@ -95,7 +99,7 @@ function Navbar() {
                                     <div className="text-xs text-blue-600 dark:text-blue-500">a few moments ago</div>
                                 </div>
                             </NavLink>
-                            <NavLink href="#" className="flex px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700">
+                            <NavLink to="#" className="flex px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700">
                                 <div className="shrink-0">
                                     <img className="rounded-full w-11 h-11" src="/docs/images/people/profile-picture-2.jpg" alt="Joseph image" />
                                     <div className="absolute flex items-center justify-center w-5 h-5 ms-6 -mt-5 bg-gray-900 border border-white rounded-full dark:border-gray-800">
@@ -109,7 +113,7 @@ function Navbar() {
                                     <div className="text-xs text-blue-600 dark:text-blue-500">10 minutes ago</div>
                                 </div>
                             </NavLink>
-                            <NavLink href="#" className="flex px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700">
+                            <NavLink to="#" className="flex px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700">
                                 <div className="shrink-0">
                                     <img className="rounded-full w-11 h-11" src="/docs/images/people/profile-picture-3.jpg" alt="Bonnie image" />
                                     <div className="absolute flex items-center justify-center w-5 h-5 ms-6 -mt-5 bg-red-600 border border-white rounded-full dark:border-gray-800">
@@ -123,7 +127,7 @@ function Navbar() {
                                     <div className="text-xs text-blue-600 dark:text-blue-500">44 minutes ago</div>
                                 </div>
                             </NavLink>
-                            <NavLink href="#" className="flex px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700">
+                            <NavLink to="#" className="flex px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700">
                                 <div className="shrink-0">
                                     <img className="rounded-full w-11 h-11" src="/docs/images/people/profile-picture-4.jpg" alt="Leslie image" />
                                     <div className="absolute flex items-center justify-center w-5 h-5 ms-6 -mt-5 bg-green-400 border border-white rounded-full dark:border-gray-800">
@@ -137,7 +141,7 @@ function Navbar() {
                                     <div className="text-xs text-blue-600 dark:text-blue-500">1 hour ago</div>
                                 </div>
                             </NavLink>
-                            <NavLink href="#" className="flex px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700">
+                            <NavLink to="#" className="flex px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700">
                                 <div className="shrink-0">
                                     <img className="rounded-full w-11 h-11" src="/docs/images/people/profile-picture-5.jpg" alt="Robert image" />
                                     <div className="absolute flex items-center justify-center w-5 h-5 ms-6 -mt-5 bg-purple-500 border border-white rounded-full dark:border-gray-800">
@@ -151,48 +155,47 @@ function Navbar() {
                                     <div className="text-xs text-blue-600 dark:text-blue-500">3 hours ago</div>
                                 </div>
                             </NavLink>
-                        </div>
-                        <NavLink href="#" className="block py-2 text-sm font-medium text-center text-gray-900 rounded-b-lg bg-gray-50 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-white">
-                            <div className="inline-flex items-center ">
-                                <svg className="w-4 h-4 me-2 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 14">
-                                    <path d="M10 0C4.612 0 0 5.336 0 7c0 1.742 3.546 7 10 7 6.454 0 10-5.258 10-7 0-1.664-4.612-7-10-7Zm0 10a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z" />
-                                </svg>
-                                View all
-                            </div>
-                        </NavLink>
+                            <NavLink to="#" className="block py-2 text-sm font-medium text-center text-gray-900 rounded-b-lg bg-gray-50 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-white">
+                                <div className="inline-flex items-center ">
+                                    <svg className="w-4 h-4 me-2 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 14">
+                                        <path d="M10 0C4.612 0 0 5.336 0 7c0 1.742 3.546 7 10 7 6.454 0 10-5.258 10-7 0-1.664-4.612-7-10-7Zm0 10a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z" />
+                                    </svg>
+                                    View all
+                                </div>
+                            </NavLink>
+                        </ul>
+                       
                     </div>
 
                 </div>
                 <div className="profile">
 
-                    <button id="dropdownAvatarNameButton" data-dropdown-toggle="dropdownAvatarName" class="flex items-center text-sm pe-1 font-medium text-gray-900 rounded-full hover:text-blue-600 dark:hover:text-blue-500 md:me-0 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:text-white" type="button">
-                        <span class="sr-only">Open user menu</span>
-                        <img class="w-8 h-8 me-2 rounded-full" src="/docs/images/people/profile-picture-3.jpg" alt="user photo"/>
-                            Bonnie Green
-                            <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
-                            </svg>
+
+                    <button onClick={() => setUserOpen(!userOpen)} id="dropdownUserAvatarButton" data-dropdown-toggle="dropdownAvatar" class="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" type="button">
+                        <span className="sr-only">Open user menu</span>
+                        <img className="w-8 h-8 rounded-full" src="/docs/images/people/profile-picture-3.jpg" alt="user photo"/>
                     </button>
 
-                   
-                    <div id="dropdownAvatarName" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700 dark:divide-gray-600">
+                    <div id="dropdownAvatar" className={`${userOpen ? "hidden" : ''}`}>
+                        <div className='z-10 absolute bg-slate-50 divide-y divide-gray-100 rounded-lg shadow-lg w-44 end-2 '>
                         <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
-                            <div class="font-medium ">Pro User</div>
-                            <div class="truncate">name@flowbite.com</div>
+                            <div>Bonnie Green</div>
+                            <div className="font-medium truncate">name@flowbite.com</div>
                         </div>
-                        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton">
+                        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownUserAvatarButton">
                             <li>
-                                <NavLink href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</NavLink>
+                                <NavLink to="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</NavLink>
                             </li>
                             <li>
-                                <NavLink href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</NavLink>
+                                <NavLink to="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</NavLink>
                             </li>
                             <li>
-                                <NavLink href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</NavLink>
+                                <NavLink to="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</NavLink>
                             </li>
                         </ul>
                         <div class="py-2">
-                            <NavLink href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</NavLink>
+                            <NavLink to="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</NavLink>
+                        </div>
                         </div>
                     </div>
 

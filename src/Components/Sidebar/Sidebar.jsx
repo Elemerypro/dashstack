@@ -13,12 +13,9 @@ function Sidebar() {
 
     <aside id="separator-sidebar" className="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0 " aria-label="Sidebar">
       <div className="h-full px-3 py-4 overflow-y-auto bg-white dark:bg-gray-800 ">
+          <p className="mx-auto text-sky-500 text-lg font-semibold pb-3">Dash<span className='text-black'>Stack</span></p>
         <ul className="space-y-2 font-medium">
-          <li>
-            <a   className="flex items-center py-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-              <p className="mx-auto text-sky-500 text-medium">Dash<span className='text-black'>Stack</span></p>
-            </a>
-          </li>
+         
           <li>
               <NavLink to='' className="py-3 flex items-center p-2 text-gray-900 rounded-md dark:text-white hover:bg-sky-500 hover:text-white  dark:hover:bg-gray-700 group">
               <svg className="shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">

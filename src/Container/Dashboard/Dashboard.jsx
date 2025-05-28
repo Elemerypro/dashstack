@@ -41,7 +41,7 @@ const Dashboard = () => {
   return <>
 
     <div className='container mx-auto'>
-      <div className='text-start ms-5'>
+      <div className='text-start ms-5 mt-5'>
         <span className='text-2xl font-semibold'>Dashboard</span>
       </div>
       <div className="row">
