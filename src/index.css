@@ -11,7 +11,7 @@
   @apply flex flex-wrap
 }
 
-.active{
+aside .active {
   background-color:#60a5ff ;
   color: #fff;
 }
