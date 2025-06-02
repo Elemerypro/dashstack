@@ -23,13 +23,13 @@ function Navbar() {
                     <div id="dropdownDots" className={` ${isOpen ? ' hidden ' : ''}  `} >
                         <ul className="py-2  text-sm text-gray-700 absolute dark:text-gray-200 bg-slate-50 divide-y divide-gray-100 rounded-lg shadow-lg w-44" aria-labelledby="dropdownMenuIconButton">
                             <li>
-                                <NavLink to="#" className=" block px-4 py-2 hover:bg-gray-100 ">Dashboard</NavLink>
+                                <NavLink to="" className=" block px-4 py-2 hover:bg-gray-100 ">Dashboard</NavLink>
                             </li>
                             <li>
-                                <NavLink to="#" className="block px-4 py-2 hover:bg-gray-100 ">Settings</NavLink>
+                                <NavLink to="settings" className="block px-4 py-2 hover:bg-gray-100 ">Settings</NavLink>
                             </li>
                             <li>
-                                <NavLink to="#" className="block px-4 py-2 hover:bg-gray-100 ">Earnings</NavLink>
+                                <NavLink to="earnings" className="block px-4 py-2 hover:bg-gray-100 ">Earnings</NavLink>
                             </li>
                         </ul>
                         
@@ -83,7 +83,7 @@ function Navbar() {
                         {/* <div className="  z-20 hidden w-full max-w-sm divide-y bg-slate-400 divide-gray-100 rounded-lg shadow-sm  px-4 py-2 font-medium text-center text-gray-700 rounded-t-lg">
                             Notifications
                         </div> */}
-                        <ul className="absolute end-64 z-20 max-w-sm bg-slate-50 divide-y divide-gray-100 rounded-lg px-4 py-2 font-medium text-center text-gray-700 rounded-t-lg shadow-lg">
+                        <ul className="absolute end-48 z-20 max-w-sm bg-slate-50 divide-y divide-gray-100 rounded-lg px-4 py-2 font-medium text-center text-gray-700 rounded-t-lg shadow-lg">
                             <NavLink to="#" className="flex px-4 py-3 hover:bg-gray-100 ">
                                 <div className="shrink-0">
                                     <img className="rounded-full w-11 h-11" src="/docs/images/people/profile-picture-1.jpg" alt="Jese image" />
@@ -178,19 +178,19 @@ function Navbar() {
 
                     <div id="dropdownAvatar" className={`${userOpen ? "hidden" : ''}`}>
                         <div className='z-10 absolute bg-slate-50 divide-y divide-gray-100 rounded-lg shadow-lg w-44 end-2 '>
-                        <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
+                        <div class="bg-blue-400 rounded-t-lg px-4 py-3 text-sm text-white dark:text-white">
                             <div>Bonnie Green</div>
                             <div className="font-medium truncate">name@flowbite.com</div>
                         </div>
                         <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownUserAvatarButton">
                             <li>
-                                <NavLink to="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</NavLink>
+                                <NavLink to="" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</NavLink>
                             </li>
                             <li>
-                                <NavLink to="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</NavLink>
+                                <NavLink to="setting" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</NavLink>
                             </li>
                             <li>
-                                <NavLink to="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</NavLink>
+                                <NavLink to="earnings" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</NavLink>
                             </li>
                         </ul>
                         <div class="py-2">
